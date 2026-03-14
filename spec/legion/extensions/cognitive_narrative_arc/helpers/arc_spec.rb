@@ -153,8 +153,8 @@ RSpec.describe Legion::Extensions::CognitiveNarrativeArc::Helpers::Arc do
     it 'includes all required keys' do
       h = arc.to_h
       expect(h.keys).to include(:arc_id, :title, :domain, :arc_phase, :tension_level,
-                                 :beat_count, :dramatic_score, :tension_label, :drama_label,
-                                 :created_at, :resolved_at)
+                                :beat_count, :dramatic_score, :tension_label, :drama_label,
+                                :created_at, :resolved_at)
     end
 
     it 'reflects current beat count' do

@@ -61,7 +61,7 @@ module Legion
           def dramatic_score
             return 0.0 if @beats.empty?
 
-            tension_contrib   = @tension_level * 0.4
+            tension_contrib = @tension_level * 0.4
             beat_count_contrib = [@beats.size.to_f / Constants::MAX_BEATS_PER_ARC, 1.0].min * 0.3
             intensity_contrib = average_beat_intensity * 0.3
             (tension_contrib + beat_count_contrib + intensity_contrib).round(10)
@@ -77,17 +77,17 @@ module Legion
 
           def to_h
             {
-              arc_id:        @arc_id,
-              title:         @title,
-              domain:        @domain,
-              arc_phase:     @arc_phase,
-              tension_level: @tension_level,
-              beat_count:    @beats.size,
+              arc_id:         @arc_id,
+              title:          @title,
+              domain:         @domain,
+              arc_phase:      @arc_phase,
+              tension_level:  @tension_level,
+              beat_count:     @beats.size,
               dramatic_score: dramatic_score,
               tension_label:  tension_label,
               drama_label:    drama_label,
-              created_at:    @created_at,
-              resolved_at:   @resolved_at
+              created_at:     @created_at,
+              resolved_at:    @resolved_at
             }
           end
 
@@ -124,7 +124,7 @@ module Legion
           end
 
           def has_resolution_beat?
-            @beats.any? { |b| b.beat_type == :resolution || b.beat_type == :denouement }
+            @beats.any? { |b| %i[resolution denouement].include?(b.beat_type) }
           end
         end
       end

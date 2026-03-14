@@ -61,7 +61,7 @@ module Legion
             return {} if @arcs.empty?
 
             counts = Hash.new(0)
-            @arcs.values.each do |arc|
+            @arcs.each_value do |arc|
               label = arc.tension_label
               counts[label] += 1
             end
@@ -81,12 +81,12 @@ module Legion
 
           def arc_report
             {
-              total_arcs:     @arcs.size,
-              active:         active_arcs.size,
-              completed:      completed_arcs.size,
-              patterns:       detect_narrative_patterns,
-              tension_dist:   tension_distribution,
-              most_dramatic:  most_dramatic_arc&.to_h
+              total_arcs:    @arcs.size,
+              active:        active_arcs.size,
+              completed:     completed_arcs.size,
+              patterns:      detect_narrative_patterns,
+              tension_dist:  tension_distribution,
+              most_dramatic: most_dramatic_arc&.to_h
             }
           end
 

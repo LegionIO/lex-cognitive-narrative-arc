@@ -18,18 +18,18 @@ module Legion
             @beat_type      = validate_beat_type(beat_type)
             @domain         = domain
             @emotional_charge = emotional_charge.clamp(-1.0, 1.0)
-            @created_at     = Time.now.utc
+            @created_at = Time.now.utc
           end
 
           def to_h
             {
-              beat_id:         @beat_id,
-              content:         @content,
-              intensity:       @intensity,
-              beat_type:       @beat_type,
-              domain:          @domain,
+              beat_id:          @beat_id,
+              content:          @content,
+              intensity:        @intensity,
+              beat_type:        @beat_type,
+              domain:           @domain,
               emotional_charge: @emotional_charge,
-              created_at:      @created_at
+              created_at:       @created_at
             }
           end
 

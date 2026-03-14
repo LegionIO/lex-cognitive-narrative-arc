@@ -27,21 +27,21 @@ module Legion
                        domain: :general, emotional_charge: 0.0, engine: nil, **)
             eng = engine || arc_engine
             result = eng.add_beat(
-              arc_id:          arc_id,
-              content:         content,
-              intensity:       intensity,
-              beat_type:       beat_type,
-              domain:          domain,
+              arc_id:           arc_id,
+              content:          content,
+              intensity:        intensity,
+              beat_type:        beat_type,
+              domain:           domain,
               emotional_charge: emotional_charge
             )
 
-            unless result[:success]
-              Legion::Logging.debug "[narrative_arc] add_beat failed: #{result[:reason]} arc=#{arc_id[0..7]}"
-            else
+            if result[:success]
               arc = eng.get_arc(arc_id)
               Legion::Logging.debug "[narrative_arc] beat added: arc=#{arc_id[0..7]} type=#{beat_type} " \
                                     "phase=#{result[:arc_phase]} tension=#{result[:tension_level].round(2)}"
               result[:dramatic_score] = arc.dramatic_score if arc
+            else
+              Legion::Logging.debug "[narrative_arc] add_beat failed: #{result[:reason]} arc=#{arc_id[0..7]}"
             end
 
             result

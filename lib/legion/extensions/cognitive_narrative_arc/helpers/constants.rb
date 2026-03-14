@@ -27,10 +27,10 @@ module Legion
           ARC_PHASES = %i[building peak resolving complete].freeze
 
           TENSION_LABELS = {
-            (0.0..0.2)  => :calm,
-            (0.2..0.5)  => :developing,
-            (0.5..0.8)  => :tense,
-            (0.8..1.0)  => :critical
+            (0.0..0.2) => :calm,
+            (0.2..0.5) => :developing,
+            (0.5..0.8) => :tense,
+            (0.8..1.0) => :critical
           }.freeze
 
           DRAMA_LABELS = {

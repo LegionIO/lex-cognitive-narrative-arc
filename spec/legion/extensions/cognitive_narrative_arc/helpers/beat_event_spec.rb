@@ -51,7 +51,7 @@ RSpec.describe Legion::Extensions::CognitiveNarrativeArc::Helpers::BeatEvent do
     it 'returns a hash with all expected keys' do
       h = beat.to_h
       expect(h.keys).to include(:beat_id, :content, :intensity, :beat_type, :domain,
-                                 :emotional_charge, :created_at)
+                                :emotional_charge, :created_at)
     end
   end
 
